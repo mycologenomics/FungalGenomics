@@ -1,0 +1,57 @@
+#commands for basic popgen analysis in R/RStudio
+
+library(ape)
+library(adegenet)
+library(viridis)
+
+library(RColorBrewer)
+
+  
+
+seqData<-read.dna("name.fa", format="fasta")
+
+myDNA<-as.matrix(seqData)
+
+seqData_obj<-DNAbin2genind(myDNA,polyThres=0.01)
+
+  
+
+#Create a file with ids and populations and save as a .txt or csv (change command accordingly)
+
+metadata<-read.table("metadata.txt",header=TRUE,sep="\t")
+
+metadata_df<-data.frame(metadata)
+
+df<-df[order(metadata_df$id),]
+
+seqData_obj@pop<-as.factor(metadata_df$pop) # where 'pop' equals some variable in your file e.g. Year, country
+
+  
+
+# Getting rid of NAs:
+
+  
+
+clean_obj<-tab(seqData_obj,freq=TRUE,NA.method="mean")
+
+  
+
+# PCA:
+
+  
+
+pca1<-dudi.pca(clean_obj,scale=FALSE,scannf=FALSE,nf=3)
+
+col<-brewer.pal(n=3,name="Dark2") #or viridis etc
+
+s.class(pca1$li,pop(seqData_obj),col=transp(col,.6))
+
+# for percentages:
+percent=round(pca1$eig/sum(pca1$eig)*100,digits=1)
+
+# DAPC
+dapc1=dapc(seqData_obj)
+scatter.dapc(dapc1,legend=TRUE,col=col)
+bestK=find.clusters(seqData_obj)
+
+
