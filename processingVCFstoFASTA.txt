@@ -1,0 +1,31 @@
+#Commands for converting individual vcf files to merged vcf and FASTA 
+
+#REQUIREMENTS
+# tabix
+# vcftools
+# bcftools
+
+# move or copy all vcf files to same directory
+
+# compress all vcf files using 'tabix bgzip name.vcf' and then index using tabix e.g.
+
+for i in *.vcf
+do
+tabix bgzip $i
+tabix -p vcf $i.gz
+done
+
+# merge
+vcf-merge -R 0 *vcf.gz > merged.vcf
+
+# convert to multiFASTA
+
+vcf=merged.vcf
+for samp in $(bcftools query -l ${vcf})
+do
+printf '>'${samp}'\n'
+bcftools query -s ${samp} -f '[%TGT]' ${vcf}
+printf '\n'
+done
+
+# check your fasta file to make sure the contents are what you expect :) 
