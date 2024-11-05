@@ -1,0 +1,23 @@
+id,Year,Country,Cyp51A,MAT,Source,ITR MIC
+C1,2012,UK,TR34/L98H,MAT-1-1,Clinical,>16
+C2,2012,UK,TR34/L98H,MAT-1-1,Clinical,>16
+C3,2009,UK,Wildtype,MAT-1-2,Clinical,1
+C4,2012,UK,Wildtype,MAT-1-1,Clinical,1
+C5,2012,UK,Wildtype,MAT-1-2,Clinical,0.5
+C6,2012,UK,Wildtype,MAT-1-1,Clinical,0.5
+C7,2003,Netherlands,TR34/L98H,MAT-1-1,Clinical,>16
+C8,2005,Netherlands,TR34/L98H,MAT-1-1,Clinical,>16
+C9,2004,Netherlands,TR34/L98H,MAT-1-1,Clinical,>16
+C10,2010,Netherlands,TR34/L98H,MAT-1-2,Clinical,>16
+C11,2009,India,TR34/L98H,MAT-1-1,Clinical,>16
+C12,2009,India,TR34/L98H,MAT-1-1,Clinical,>16
+C13,2011,India,TR34/L98H,MAT-1-1,Clinical,>16
+C14,2012,India,TR34/L98H,MAT-1-1,Clinical,>16
+E1,2008,Netherlands,TR34/L98H,MAT-1-1,Environmental,>16
+E2,2008,Netherlands,Wildtype,MAT-1-1,Environmental,0.25
+E3,2008,Netherlands,TR34/L98H,MAT-1-1,Environmental,>16
+E4,2008,Netherlands,TR34/L98H,MAT-1-2,Environmental,>16
+E5,2011,India,TR34/L98H,MAT-1-1,Environmental,>16
+E6,2011,India,TR34/L98H,MAT-1-1,Environmental,16
+E7,2011,India,TR34/L98H,MAT-1-1,Environmental,>16
+E8,2011,India,TR34/L98H,MAT-1-1,Environmental,>16
